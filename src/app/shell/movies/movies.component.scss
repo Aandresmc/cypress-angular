@@ -1,0 +1,27 @@
+.form {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  * {
+    max-width: 100%;
+  }
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+}
+
+.fab {
+  position: fixed;
+  top: 50%;
+
+  &.__left {
+    left: 50px;
+  }
+  &.__right {
+    right: 50px;
+  }
+}

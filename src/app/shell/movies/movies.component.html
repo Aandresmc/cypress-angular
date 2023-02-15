@@ -1,0 +1,39 @@
+<form
+  class="form"
+  [formGroup]="form"
+  (ngSubmit)="search(this.form.get('query')?.value)"
+>
+  <mat-form-field appearance="outline">
+    <mat-label>Search movies by name</mat-label>
+    <input matInput formControlName="query" name="search-movie" />
+    <mat-icon matPrefix>search</mat-icon>
+  </mat-form-field>
+  <button mat-stroked-button color="primary" type="submit">Search</button>
+</form>
+
+<div class="grid">
+  <app-movie *ngFor="let movie of movies" [movie]="movie"> </app-movie>
+    <h1 *ngIf="!movies.length">Sorry, result empty </h1>
+</div>
+
+<button
+  class="fab __left"
+  mat-fab
+  extended
+  color="black"
+  name="nav-left"
+  (click)="navigation(true, this.form.get('query')?.value)"
+>
+  <mat-icon>arrow_back</mat-icon>
+</button>
+<button
+  class="fab __right"
+  mat-fab
+  extended
+  name="nav-right"
+  color="black"
+  [disabled]="!movies.length"
+  (click)="navigation(false, this.form.get('query')?.value)"
+>
+  <mat-icon>arrow_forward</mat-icon>
+</button>
